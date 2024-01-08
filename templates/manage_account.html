@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container mt-4">
+        
+        {% if account %}
+            <h4>Account Information</h4>
+            <p><strong>Name:</strong> {{ account.account_name }}</p>
+            <p><strong>Balance:</strong> {{ account.account_balance }}</p>
+            <p><strong>Type:</strong> {{ account.account_type }}</p>
+            <p><strong>Status:</strong> {{ account.account_status }}</p>
+            <p><strong>Created At:</strong> {{ account.created_at }}</p>
+            <p><strong>Updated At:</strong> {{ account.updated_at }}</p>
+        {% else %}
+            <p>No account found.</p>
+        {% endif %}
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+{% endblock %}
+
+
+
