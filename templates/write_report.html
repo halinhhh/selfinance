@@ -1,12 +1,18 @@
+<header>      
+    <img id="logo" src="{{ url_for('static', filename='Logo.png') }}"/>
+    <a class="contact" href="{{ url_for('contact') }}">Contact us</a>
+</header>
+<img id="whitebg" src="{{ url_for('static', filename='Report.png') }}"/>
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container mt-4">
-        <h2>REPORT</h2>
+
+    <div class="container7">
+        <h4 class="AI">Report</h4>
         
         <form method="post" action="{{ url_for('write_report') }}" class="mt-4">
             
-            <div class="form-group">
+            <div class="form-group first">
                 <label for="report_type">Report Type:</label>
                 <select name="report_type" id="report_type" class="form-control" required>
                     <option value="Daily" {% if report_type == 'Daily' %}selected{% endif %}>Daily</option>
@@ -14,13 +20,13 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group second">
                 <label for="report_date">Report Date:</label>
                 <input type="date" name="report_date" id="report_date" class="form-control" required value="{{ report_date }}">
             </div>
 
-            <button type="submit" class="btn btn-primary">Generate Report</button>
+            <button type="submit" class="buttona">Generate Report</button>
         </form>
-        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        <a class="back" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
     </div>
 {% endblock %}

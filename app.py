@@ -70,6 +70,10 @@ def login():
 def dashboard():
     return render_template('dashboard.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
+
 @app.route('/manage_finance', methods=['GET', 'POST'])
 def manage_finance():
     if request.method == 'POST':
@@ -108,8 +112,20 @@ def manage_finance():
 
 @app.route('/manage_account')
 def manage_account():
+    
     account = Account.query.filter_by(user_id=1).first()
+    sample_account = Account(
+    user_id=1,
+    account_name='Sample Account',
+    account_balance=10000,
+    account_type='cash',
+    account_status='Active'
+)
 
+
+    db.session.add(sample_account)
+    db.session.commit()
+    
     return render_template('manage_account.html', account=account)
 
 @app.route('/write_report', methods=['GET', 'POST'])
@@ -126,6 +142,8 @@ def write_report():
         flash('Report submitted successfully', 'success')
 
     return render_template('write_report.html')
+
+
 
 
 

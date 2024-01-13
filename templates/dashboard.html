@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <header>
-        <h1 class="title">Selfinance</h1>        
-        <img id="logo" src="{{ url_for('static', filename='Icon.png') }}"/>
+    <header>      
+        <img id="logo" src="{{ url_for('static', filename='Logo.png') }}"/>
+        <a class="contact" href="{{ url_for('contact') }}">Contact us</a>
     </header>
     <main>
         <div class="grid-container">
             <h2 class="db">Welcome!</h2>
             <h3 class="db">What do you want to do today ?</h3>
-            <img id="dbleft" src="{{ url_for('static', filename='Dashboard left.jpg') }}"/>
+            <img id="dbleft" src="{{ url_for('static', filename='Dashboard left.png') }}"/>
             <div class="container2">
                 <h4 class="shift">Manage Account</h4>
-                <img id="minibutton" src="{{ url_for('static', filename='1.png') }}"/>
                 <ul>
                     {% for transaction in transactions %}
                     <li>{{ transaction.transaction_type }}: ${{ transaction.amount }}
@@ -22,7 +21,6 @@
             </div>
             <div class="container3">
                 <h4 class="shift">Manage Finance</h4>
-                <img id="minibutton" src="{{ url_for('static', filename='2.png') }}"/>
                 <ul>
                     {% for transaction in transactions %}
                     <li>{{ transaction.transaction_type }}: ${{ transaction.amount }}
@@ -31,8 +29,7 @@
                 <a href="{{ url_for('manage_finance') }}" class="btn btn-primary">+</a>
             </div>
             <div class="container4">
-                <h4 class="shift 3">Write Report</h4>
-                <img id="minibutton3" src="{{ url_for('static', filename='3.png') }}"/>
+                <h4 class="shift 3">Write Report  </h4>
                 <ul>  
                     {% for transaction in transactions %}
                     <li>{{ transaction.transaction_type }}: ${{ transaction.amount }}
