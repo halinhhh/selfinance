@@ -1,11 +1,8 @@
+<div class="background-img">
 {% extends 'base.html' %}
 
 {% block content %}
-
-<aside class="image-wrapper">
-    <img class="rectangle" src="{{ url_for('static', filename='image theme.png') }}" alt="rectangle"/>
-    <p class="loginpart">Login</p>
-
+    <img class="finallogo" src="{{ url_for('static', filename='finallogo.png') }}"/>
     <div class="container1">
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
@@ -14,17 +11,16 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
-
-        
         <form method="post" action="{{ url_for('login') }}">
+            <h1>Login</h1>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
-            <br>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
-            <br>
             <button type="submit">Login</button>
         </form>
     </div>
-</aside>
+    <br>
+    <br>
 {% endblock %}
+</div>

@@ -1,21 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container mt-4">
-        
+<header>      
+    <img id="logo" src="{{ url_for('static', filename='Logo.png') }}"/>
+    <a class="contact" href="{{ url_for('contact') }}">Contact us</a>
+</header>
+<div class="bodymanageacc">
+    <div class="containeracc">
         {% if account %}
-            <h4>Account Information</h4>
-            <p><strong>Name:</strong> {{ account.account_name }}</p>
-            <p><strong>Balance:</strong> {{ account.account_balance }}</p>
-            <p><strong>Type:</strong> {{ account.account_type }}</p>
-            <p><strong>Status:</strong> {{ account.account_status }}</p>
-            <p><strong>Created At:</strong> {{ account.created_at }}</p>
-            <p><strong>Updated At:</strong> {{ account.updated_at }}</p>
+            <h4 class="AI">Account Information</h4>
+            <div class="textwithlogo"><img id="minilogo" src="{{ url_for('static', filename='star.png') }}"/><p><strong>Name:</strong> {{ account.account_name }}</p></div>
+            <div class="textwithlogo"><img id="minilogo" src="{{ url_for('static', filename='star.png') }}"/><p><strong>Balance:</strong> {{ account.account_balance }}</p></div>
+            <div class="textwithlogo"><img id="minilogo" src="{{ url_for('static', filename='star.png') }}"/><p><strong>Type:</strong> {{ account.account_type }}</p></div>
+            <div class="textwithlogo"><img id="minilogo" src="{{ url_for('static', filename='star.png') }}"/><p><strong>Status:</strong> {{ account.account_status }}</p></div>
+            <div class="textwithlogo"><img id="minilogo" src="{{ url_for('static', filename='star.png') }}"/><p><strong>Created At:</strong> {{ account.created_at }}</p></div>
+            <div class="textwithlogo"><img id="minilogo" src="{{ url_for('static', filename='star.png') }}"/><p><strong>Updated At:</strong> {{ account.updated_at }}</p></div>
+            
         {% else %}
             <p>No account found.</p>
         {% endif %}
-        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+        <a class="back" href="{{ url_for('dashboard') }}">Back to Dashboard</a>
     </div>
+    <img id="manageacc" src="{{ url_for('static', filename='Manage Acc.png') }}"/>
+</div>
 {% endblock %}
 
 
